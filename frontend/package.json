@@ -1,18 +1,20 @@
 {
-  "name": "web3",
+  "name": "frontend2",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview --port 4173"
   },
   "dependencies": {
     "socket.io-client": "^4.5.3",
-    "vue": "^3.2.41",
-    "vue-socket.io": "github:MetinSeylan/Vue-Socket.io"
+    "vue": "^2.7.7",
+    "vue-socket.io": "^3.0.10"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^3.1.2",
-    "vite": "^3.1.8"
+    "@vitejs/plugin-legacy": "^2.0.0",
+    "@vitejs/plugin-vue2": "^1.1.2",
+    "terser": "^5.14.2",
+    "vite": "^3.0.2"
   }
 }

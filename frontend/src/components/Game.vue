@@ -1,17 +1,19 @@
-<script setup>
-import GamePlot from './GamePlot.vue'
-</script>
 <script>
+import GamePlot from './GamePlot.vue'
+
 export default {
+  components: {
+    GamePlot: () => import('./GamePlot.vue')
+  },
   data() {
     return {
       crops: [['', '', ''], ['', '', ''], ['', '', '']],
       cash: 9,
+      players: 0,
       cornPrice: 1,
       dfPrice: 1,
       kamotePrice: 1,
       inGame: false,
-      players: 0,
       previousCrops: {}
     }
   },
@@ -33,9 +35,9 @@ export default {
       let df = 0
       let kamote = 0
       let corn = 0
-      for(let row of this.crops){
-        for(let crop of row){
-          switch(crop) {
+      for (let row of this.crops) {
+        for (let crop of row) {
+          switch (crop) {
             case 'corn':
               corn++
               break
@@ -47,11 +49,11 @@ export default {
           }
         }
       }
-      this.crops = [['','',''],['','',''],['','','']]
+      this.crops = [['', '', ''], ['', '', ''], ['', '', '']]
       this.$socket.emit('receiveCrops', JSON.stringify({
         kamote, corn, df
       }))
-      this.previousCrops = {kamote, corn, df}
+      this.previousCrops = { kamote, corn, df }
       this.inGame = false
     },
     startRoundClient() {
@@ -91,37 +93,40 @@ export default {
     },
     reset() {
       this.$socket.emit('reset');
-      this.cash = 9
+      this.cash = 9;
     }
   }
 }
 </script>
 
 <template>
-  <h2>Cash: {{ this.cash }} </h2>
-  <h3>Players: {{ this.players }} </h3>
-  <table>
-    <tr>
-      <th>Corn</th>
-      <th>DF</th>
-      <th>Kamote</th>
-    </tr>
-    <tr>
-      <td>${{ this.cornPrice }}</td>
-      <td>${{ this.dfPrice }}</td>
-      <td>${{ this.kamotePrice }}</td>
-    </tr>
-  </table>
-  <table v-if="inGame">
-    <tr v-for="i in 3">
-      <td v-for="j in 3">
-        <GamePlot :row="i - 1" :column="j - 1" @plantSeed="plantSeed">{{ this.crops[i - 1][j - 1] }}</GamePlot>
-      </td>
-    </tr>
-  </table>
-  <button v-if="!inGame" v-on:click="startRound()">Start Round</button>
-  <button v-if="inGame" v-on:click="endRound()">End Round</button>
-  <button v-on:click="reset()">Reset</button>
+  <div>
+    <h2>Cash: {{ cash }} </h2>
+    <h3>Players: {{ players }} </h3>
+    <table>
+      <tr>
+        <th>Corn</th>
+        <th>DF</th>
+        <th>Kamote</th>
+      </tr>
+      <tr>
+        <td>${{ cornPrice }}</td>
+        <td>${{ dfPrice }}</td>
+        <td>${{ kamotePrice }}</td>
+      </tr>
+    </table>
+    <table v-if="inGame">
+      <tr v-for="i in 3">
+        <td v-for="j in 3">
+          <GamePlot :row="i - 1" :column="j - 1" @plantSeed="plantSeed">{{ crops[i - 1][j - 1] }}</GamePlot>
+        </td>
+      </tr>
+    </table>
+    <button v-if="!inGame" v-on:click="startRound()">Start Round</button>
+    <button v-if="inGame" v-on:click="endRound()">End Round</button>
+    <button v-on:click="reset()">Reset</button>
+  </div>
+
 </template>
 
 <style scoped>
