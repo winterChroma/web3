@@ -23,5 +23,14 @@ a {
   align-items: center;
 }
 
-router-link {}
+router-link,
+a {
+  text-decoration: none;
+  background-color: #9fc849;
+  max-width: fit-content;
+}
+
+* {
+  align-self: center;
+}
 </style>
