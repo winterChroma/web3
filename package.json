@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "web3": "^1.8.1"
+  }
+}
