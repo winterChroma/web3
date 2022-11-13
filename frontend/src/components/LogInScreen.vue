@@ -11,7 +11,7 @@
 
 </template>
 
-<style>
+<style scoped>
 button,
 a {
   display: block;

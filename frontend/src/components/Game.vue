@@ -202,7 +202,6 @@ export default {
   width: 140px;
   margin: 5px;
   display: inline-block;
-  padding-bottom: 40px;
 }
 
 .btn-container {
