@@ -78,9 +78,9 @@ io.on('connection', (socket) => {
       cornPrice = cornFactor * magicNumber / divisor
       io.emit('updatePrice', JSON.stringify({
         started: true,
-        kamotePrice,
-        dfPrice,
-        cornPrice
+        kamotePrice: kamotePrice.toFixed(2),
+        dfPrice: dfPrice.toFixed(2),
+        cornPrice: cornPrice.toFixed(2)
       }))
       io.emit('calculateWinnings')
       reset()
