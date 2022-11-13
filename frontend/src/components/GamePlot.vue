@@ -10,16 +10,13 @@ export default {
 
 <template>
   <div>
-    <h6>
-      <slot></slot>
-    </h6>
+    <slot></slot>
     <button @click="$emit('plantSeed', { crop: 'corn', row, column })">Corn</button>
-    <button @click="$emit('plantSeed', { crop: 'df', row, column })">Dragon Fruit</button>
-    <button @click="$emit('plantSeed', { crop: 'kamote', row, column })">Kamote</button>
+    <button @click="$emit('plantSeed', { crop: 'df', row, column })">Tomato</button>
+    <button @click="$emit('plantSeed', { crop: 'kamote', row, column })">Eggplant</button>
   </div>
 
 </template>
 
 <style scoped>
-
 </style>
