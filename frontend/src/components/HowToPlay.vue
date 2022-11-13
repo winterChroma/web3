@@ -3,7 +3,7 @@
 
 <template>
   <div>
-    <h1>HAWDA OY! HOW TO PLAY?! DI NA KINAHANGLAN!</h1>
+    <h1>How to Play</h1>
   </div>
 
 </template>
