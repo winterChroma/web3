@@ -7,22 +7,22 @@ import LogInScreen from './components/LogInScreen.vue'
 <template>
   <div class="hero-image container">
     <router-view></router-view>
-    <Game />
-    <WalletConnect/>
+    <!-- <Game /> -->
+    <WalletConnect />
   </div>
 </template>
 
 <style scoped>
-.hero-image{
+.hero-image {
   background-image: url('./assets/grasstile.png')
 }
+
 .container {
   display: block;
   margin-left: 200px;
   height: 800px;
   width: 1000px;
 }
-
 </style>
 
 <script setup>
